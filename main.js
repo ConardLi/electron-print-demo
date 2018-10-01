@@ -56,7 +56,7 @@ function initialize() {
       show: false,
     }
     demoWindow = new BrowserWindow(windowOptions);
-    demoWindow.loadURL(path.join('file://', __dirname, './sections/print/printThree.html'));
+    demoWindow.loadURL(path.join('file://', __dirname, './sections/print/print1.html'));
 
     initPrintEvent();
   }
@@ -65,13 +65,12 @@ function initialize() {
     ipcMain.on('print-start', (event, deviceName) => {
       console.log('print-start');
       demoWindow.webContents.send('print-edit', deviceName);
-      console.log(222);
     })
 
     ipcMain.on('do', (event, deviceName) => {
       const printers = demoWindow.webContents.getPrinters();
       printers.forEach(element => {
-        if (element.name === deviceName){
+        if (element.name === deviceName) {
           console.log(element);
         }
         if (element.name === deviceName && element.status != 0) {

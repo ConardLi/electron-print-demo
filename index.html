@@ -9,46 +9,20 @@
 
 <body>
 
-  <div class="rainbow-button-wrapper">
-    <button id="openDemo" class="about-button modal-hide"> 开启示例</button>
-  </div>
-
   <div class="container">
     <div class="rainbow-button-wrapper">
-      <button id="openPrintgt800" class="about-button modal-hide"> GT800打印</button>
+      <button id="openPrintgt800" class="about-button modal-hide"> webcontent</button>
     </div>
-    <div class="rainbow-button-wrapper">
-      <button id="openPrintgk420" class="about-button modal-hide"> GK420打印</button>
-    </div>
-    <div class="rainbow-button-wrapper">
-      <button id="openPrintbtp" class="about-button modal-hide"> BTP打印</button>
-    </div>
-  </div>
-
-  <div class="container">
     <div class="rainbow-button-wrapper">
       <button id="openPrintwebView" class="about-button modal-hide"> webview</button>
     </div>
   </div>
 
   <div class="container">
-    <div class="rainbow-button-wrapper">
-      <button id="morePrint" class="about-button modal-hide"> 多台打印</button>
-    </div>
-    <div class="rainbow-button-wrapper">
-      <button id="continuousPrint" class="about-button modal-hide"> 连续打印</button>
-    </div>
-    <div class="rainbow-button-wrapper">
-      <button id="bugPrint" class="about-button modal-hide"> 故障测试</button>
-    </div>
-  </div>
-
-  <div class="container">
-    <webview id="printWebview" src="./sections/print/printFour.html" nodeintegration style="display:inline-flex; width:640px; height:480px;visibility: hidden"></webview>
+    <webview id="printWebview" src="./sections/print/printFour.html" nodeintegration style="visibility: hidden"></webview>
   </div>
 
   <script>
-    require('./assets/index')
     require('./renderer-process/print/index')
   </script>
 </body>
