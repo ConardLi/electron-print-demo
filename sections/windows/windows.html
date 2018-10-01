@@ -1,0 +1,119 @@
+<template class="task-template">
+  <section id="windows-section" class="section js-section u-category-windows">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          创建并管理窗体
+        </h1>
+        <h3>Electron 中的 <code>BrowserWindow</code> 模块允许您创建新的浏览器窗口或管理现有的浏览器窗口.</h3>
+
+        <p>每个浏览器窗口都是一个单独的进程, 称为渲染器进程. 这个进程, 像控制应用程序生命周期的主进程一样，可以完全访问 Node.js API.</p>
+
+        <p>在浏览器中打开 <a href="http://electron.atom.io/docs/api/browser-window">完整的 API 文档<span class="u-visible-to-screen-reader">(在新窗口中打开)</span></a>.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">创建一个新窗体
+          <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="new-window">查看示例</button>
+          </div>
+          <p>通过 <code>BrowserWindow</code> 模块可以在应用程序中创建新窗口. 这个主进程模块可以和渲染器进程与 <code>remote</code> 模块一起使用, 如本示例中所示.</p>
+
+          <p>创建新窗口时有很多参数. 示例中用了一部分, 完整的列表请查看 <a href="http://electron.atom.io/docs/api/browser-window">文档<span class="u-visible-to-screen-reader">(在新窗口中打开)</span></a>.</p>
+          <h5>渲染器进程</h5>
+          <pre><code data-path="renderer-process/windows/create-window.js"></code></pre>
+
+          <div class="demo-protip">
+            <h2>高级技巧</h2>
+            <strong>使用不可见的浏览器窗口来运行后台任务.</strong>
+            <p>您可以将新的浏览器窗口设置为不显示 (即不可见), 以便将该渲染器进程作为 JavaScript 的一种新线程附加在应用程序后台运行. 您可以通过在定义新窗口时将 <code>show</code> 属性设置为 <code>false</code> 来执行此操作.</p>
+            <pre>
+<code class="language-js">var win = new BrowserWindow({
+  width: 400, height: 225, show: false
+})</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">管理窗体状态
+          <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="manage-window">查看示例</button>
+            <span class="demo-response" id="manage-window-reply"></span>
+          </div>
+           <p>在这个示例中, 我们创建一个新窗口, 并监听 <code>move</code> 和 <code>resize</code> 事件. 点击示例按钮, 并更改新窗口大小和位置, 然后在上方查看输出的大小和位置信息.</p>
+          <p>有很多方法用于控制窗口的状态, 如大小, 位置和焦点状态以及监听窗口更改的事件. 完整的列表请查看 <a href="http://electron.atom.io/docs/api/browser-window">文档<span class="u-visible-to-screen-reader">(在新窗口中打开)</span></a>.</p>
+          <h5>Renderer Process</h5>
+          <pre><code data-path="renderer-process/windows/manage-window.js"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="using-window-events-demo-toggle" class="js-container-target demo-toggle-button">窗体事件: 获取和失去焦点
+          <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="listen-to-window">查看示例</button>
+            <button  class="demo-button disappear" id="focus-on-modal-window">示例获取焦点</button>
+          </div>
+          <p>在这个示例中, 我们创建一个新窗体并监听它的 <code>blur</code> 事件. 点击示例按钮创建一个新的模态窗体, 然后点击父级窗体来切换焦点. 你可以通过点击 <i>示例获取焦点</i> 按钮来让示例窗体再次获得焦点.</p>
+          <h5>渲染器进程</h5>
+          <pre><code data-path="renderer-process/windows/using-window-events.js"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button class="js-container-target demo-toggle-button">创建一个无框窗体
+          <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="frameless-window">查看示例</button>
+          </div>
+          <p>无框窗口就是一个没有 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Chrome">"chrome"</a> 的窗口,
+             比如工具栏，标题栏，状态栏，边框等. 你可以在创建窗体时通过设置 <code>frame</code> 为 <code>false</code> 来创建一个无框的窗体.
+          </p>
+
+          <h5>渲染器进程</h5>
+          <pre><code data-path="renderer-process/windows/frameless-window.js"></code></pre>
+
+          <p>窗体也可以有一个透明的背景. 通过设置 <code>transparent</code> 参数为 <code>true</code>, 你也可以让你的无框窗口透明:</p>
+          <pre>
+<code class="language-js">var win = new BrowserWindow({
+  transparent: true,
+  frame: false
+})</code></pre>
+
+        <p>
+          更多内容, 请查阅 <a href="http://electron.atom.io/docs/api/frameless-window/">无框窗体</a> 文档.
+        </p>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/windows/create-window')
+      require('./renderer-process/windows/manage-window')
+      require('./renderer-process/windows/using-window-events')
+      require('./renderer-process/windows/frameless-window')
+    </script>
+
+  </section>
+</template>

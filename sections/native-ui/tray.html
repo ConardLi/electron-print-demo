@@ -1,0 +1,48 @@
+<template class="task-template">
+  <section id="tray-section" class="section js-section u-category-native-ui">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
+          托盘
+        </h1>
+        <h3>使用 <code>tray</code> 模块允许您在操作系统的通知区域中创建图标.</h3>
+        <p>此图标还可以附加上下文菜单.</p>
+
+        <p>在浏览器中查看 <a href="http://electron.atom.io/docs/api/tray">在新窗口中打开<span class="u-visible-to-screen-reader">(在新窗口中打开)</span></a>.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="tray-demo-toggle" class="js-container-target demo-toggle-button">托盘
+          <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux | 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="put-in-tray">查看示例</button>
+            <span class="demo-response" id="tray-countdown"></span>
+          </div>
+          <p>示例按钮使用 <code>ipc</code> 模块向主进程发送消息. 在主进程中, 应用程序会被告知在托盘中放置一个带有上下文菜单的图标.</p>
+
+          <p>在此示例中, 可以通过单击托盘图标上下文菜单中的 "移除" 或再次点击示例按钮来删除托盘图标.</p>
+          <h5>主进程</h5>
+          <pre><code data-path="main-process/native-ui/tray/tray.js"></code></pre>
+          <h5>渲染器进程</h5>
+          <pre><code data-path="renderer-process/native-ui/tray/tray.js"></code></pre>
+
+          <div class="demo-protip">
+            <h2>高级技巧</h2>
+            <strong>Linux中的托盘支持.</strong>
+            <p>在只有应用程序指示器支持的 Linux 发行版上，用户需要安装 <code>libappindicator1</code> 来使托盘图标正常工作. 有关在 Linux 上使用托盘的更多详细信息请查看 <a href="http://electron.atom.io/docs/api/tray">完整 API 文档<span class="u-visible-to-screen-reader">(在新窗口中打开)</span></a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/native-ui/tray/tray')
+    </script>
+
+  </section>
+</template>

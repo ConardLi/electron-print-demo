@@ -1,0 +1,66 @@
+<template class="task-template">
+  <section id="shortcuts-section" class="section js-section u-category-menu">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+          键盘快捷键
+        </h1>
+
+        <h3>可以使用 <code>globalShortcut</code> 和 <code>Menu</code> 模块定义键盘快捷键.</h3>
+
+        <p>
+          在 Electron 中, 键盘快捷键被称作加速器(Accelerator). 它们可以分配到应用程序菜单中的操作上,
+          也可以全局分配，所以即使你的应用程序没有获得键盘焦点, 它们也可以被触发.
+        </p>
+
+        <p>
+          在浏览器中查看
+          <a class="u-exlink" href="http://electron.atom.io/docs/api/menu">Menu</a>,
+          <a class="u-exlink" href="http://electron.atom.io/docs/api/accelerator">Accelerator</a>,
+          和
+          <a class="u-exlink" href="http://electron.atom.io/docs/api/global-shortcut">globalShortcut</a>
+          API 的完整文档.
+        </p>
+
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="shortcuts-demo-toggle" class="js-container-target demo-toggle-button">注册全局键盘快捷键
+          <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <p>
+            试一下这个示例, 在键盘上按下 <kbd class="normalize-to-platform">CommandOrControl+Alt+K</kbd> 快捷键.
+          </p>
+
+          <p>
+            即使应用程序没有键盘焦点, 也会检测到全局快捷键, 而且它们必须在应用程序的 `ready` 事件发出后注册.
+          </p>
+
+          <h5>主进程</h5>
+          <pre><code data-path="main-process/menus/shortcuts.js"></code></pre>
+
+          <div class="demo-protip">
+            <h2>高级技巧</h2>
+            <strong>避免覆盖系统范围的键盘快捷键.</strong>
+            <p>
+                注册全局快捷方式时, 请务必注意目标操作系统中的现有默认值, 以免覆盖任何现有行为.
+                有关每个操作系统键盘快捷键的概述, 请查看这些文档:
+            </p>
+
+            <ul>
+              <li><a class="u-exlink" href="https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/Keyboard.html">macOS</a></li>
+              <li><a class="u-exlink" href="http://windows.microsoft.com/en-us/windows-10/keyboard-shortcuts">Windows</a></li>
+              <li><a class="u-exlink" href="https://developer.gnome.org/hig/stable/keyboard-input.html.en">Linux</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+</template>
