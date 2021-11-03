@@ -58,6 +58,9 @@ function initialize() {
     demoWindow = new BrowserWindow(windowOptions);
     demoWindow.loadURL(path.join('file://', __dirname, './sections/print/print1.html'));
 
+    // 查看打印机列表，name属性的值就是打印机名称
+    // console.log('printers', demoWindow.webContents.getPrinters());
+
     initPrintEvent();
   }
 
